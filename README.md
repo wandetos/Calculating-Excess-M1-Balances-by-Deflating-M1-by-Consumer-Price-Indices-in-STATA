@@ -28,3 +28,10 @@ The data used in this study was gathered from the IMF’s International Financia
     twoway (line M1 Trend) (line Def_M1 Trend)
     **Calcuating Excess M1
     gen Excess_M1 = (Def_M1-MDemand)
+
+## Data Files for the Analysis
+
+1. Real M1.xlsx ------------------This is the original data used for analysis  
+2. Calculating Excess M1.log------The STATA .log file of codes used in the analysis
+3. Calculating Excess M1.do----------The STATA .do file of codes used in the analysis
+4. Excess M1 Data Output.dta---------The Data Output
