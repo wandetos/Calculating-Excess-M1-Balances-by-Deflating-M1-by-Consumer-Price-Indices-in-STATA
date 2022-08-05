@@ -1,0 +1,53 @@
+---------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\sam\Desktop\Calculating Excess M1.log
+  log type:  text
+ opened on:   4 Aug 2022, 19:09:51
+
+. import excel "C:\Users\sam\Desktop\Real M1.xlsx", sheet("Real M1") firstrow
+
+. gen Trend=_n
+
+. regress RealM1 RGDP Inflation Trend
+
+      Source |       SS           df       MS      Number of obs   =       110
+-------------+----------------------------------   F(3, 106)       =    189.65
+       Model |  6.3781e+19         3  2.1260e+19   Prob > F        =    0.0000
+    Residual |  1.1883e+19       106  1.1210e+17   R-squared       =    0.8430
+-------------+----------------------------------   Adj R-squared   =    0.8385
+       Total |  7.5664e+19       109  6.9416e+17   Root MSE        =    3.3e+08
+
+------------------------------------------------------------------------------
+      RealM1 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        RGDP |   .0000348   .0000118     2.94   0.004     .0000113    .0000583
+   Inflation |  -1.36e+09   1.32e+09    -1.03   0.305    -3.99e+09    1.26e+09
+       Trend |   1.77e+07    2194711     8.08   0.000     1.34e+07    2.21e+07
+       _cons |   3.02e+09   2.49e+08    12.14   0.000     2.53e+09    3.52e+09
+------------------------------------------------------------------------------
+
+. predict MDemand
+(option xb assumed; fitted values)
+
+. twoway (line RealM1 Trend)
+
+. twoway (line RealM1 Trend) (line MDemand Trend)
+
+. **Defalting M1
+
+. ** JAN-12 IS THE BASE PERIOD
+
+. gen CPI_Index = (CPI/109.06528886801)
+
+. gen Def_M1 = (M1/CPI_Index)
+
+. twoway (line M1 Trend) (line Def_M1 Trend)
+
+. gen Excess_M1 = (Def_M1-MDemand)
+
+. log close
+      name:  <unnamed>
+       log:  C:\Users\sam\Desktop\Calculating Excess M1.log
+  log type:  text
+ closed on:   4 Aug 2022, 19:15:12
+---------------------------------------------------------------------------------------------------------------------------------------------
