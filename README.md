@@ -35,3 +35,14 @@ The data used in this study was gathered from the IMF’s International Financia
 2. Calculating Excess M1.log------The STATA .log file of codes used in the analysis
 3. Calculating Excess M1.do----------The STATA .do file of codes used in the analysis
 4. Excess M1 Data Output.dta---------The Data Output
+
+## Original Data Sample
+
+The original data used for analysis 
+
+![image](https://user-images.githubusercontent.com/74916045/183057260-f89f3215-cbf5-43fe-a16e-28b1b2f6039d.png)
+
+
+## Final Data Output
+The last column shows the  excess of M1
+![image](https://user-images.githubusercontent.com/74916045/183057038-e8a3ac96-09ea-4605-a5a0-caf5c5d8ca12.png)
